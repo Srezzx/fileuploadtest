@@ -7,7 +7,8 @@ router.post("/", upload.single("image"), async (req, res) => {
 
     const result = await cloudinary.v2.uploader.upload(req.file.path, {
       use_filename: true,
-      public_id:req.body.id
+      public_id:req.body.id,
+      folder:"Esummit21"
     });
     console.log(result);
     res.json(result);
