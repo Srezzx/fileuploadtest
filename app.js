@@ -28,6 +28,7 @@ mongoose.connect(process.env.MONGO_URI , {
 }).then(() => console.log("MOngodb is connected"))
 .catch((err) => console.log("Error connecting mongodb"));
 
+
 app.get("/", async (req,res) => {
     res.send("HEllo fellow coders _--_");
 })
