@@ -26,12 +26,17 @@ router.post("/search", async (req, res) => {
         return res.json({
           status: "Success",
           msg: "Successfully found the resume",
+          incomming:x,
+          incomming_length:x.length,
+
         });
       } else counter === 1;
       {
         return res.json({
           status: "Failed",
           msg: "Could not find the resume",
+          incomming:x,
+          incomming_length:x.length,
         });
       }
     });
