@@ -42,6 +42,20 @@ router.post("/search", async (req, res) => {
     });
 });
 
+router.get("/getallemails", async(req,res) => {
+  const result = await cloudinary.v2.search
+  .expression("@vitstudent.ac.in")
+  .max_results(500)
+  .execute()
+  .then((result) => {
+    var names = [];
+    result.resources.forEach(function (resource) {
+      names.push(resource.filename);
+    });
+    return res.json({msg:"Success" , allemails:names, length:names.length});
+  });
+});
+
 router.post("/", upload.single("image"), async (req, res) => {
   try {
     const result = await cloudinary.v2.uploader.upload(req.file.path, {
